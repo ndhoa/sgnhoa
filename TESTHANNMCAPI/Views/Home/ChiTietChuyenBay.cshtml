@@ -1,0 +1,83 @@
+﻿@model IEnumerable<HANNMCAIRTKT.shoppingResponseReturnItineraryFlightInforFlightSegment>
+
+@{
+    ViewData["Title"] = "ChiTietChuyenBay";
+}
+
+<h1>ChiTietChuyenBay</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DepCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArrCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Equipment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OperatingAirline)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConnectPoint)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConnectPointSpecified)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArrTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingClass)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArrCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Equipment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OperatingAirline)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConnectPoint)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConnectPointSpecified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArrTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingClass)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

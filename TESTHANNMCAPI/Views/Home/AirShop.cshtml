@@ -1,0 +1,65 @@
+﻿@model IEnumerable<HANNMCAIRTKT.shoppingResponseReturnItinerary>
+
+@{
+    ViewData["Title"] = "AirShop";
+}
+
+<h1>AirShop</h1>
+
+<p>
+    <a asp-action="Create"> </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalFare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValidatingCarrier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightInfor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var itinerary in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => itinerary.TotalFare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => itinerary.ValidatingCarrier)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => itinerary.FlightInfor)
+            </td>*@
+        <td>
+            @foreach (var FlightInfor in itinerary.FlightInfor)
+            {
+
+                @foreach (var FlightSeg in FlightInfor.FlightSegment)
+                {
+                    <div>@FlightSeg.DepCode</div>
+                    <div>@FlightSeg.ArrCode</div>
+                    <div>@FlightSeg.DepTime</div>
+                    <div>@FlightSeg.ArrTime</div>
+                    <div>@FlightSeg.BookingClass</div>
+                    <div>@FlightSeg.Equipment</div>
+                    <div>@FlightSeg.MarketingAirline.Code</div>
+                    <div>@FlightSeg.MarketingAirline.FlightNumber</div>
+                    <div>@FlightSeg.OperatingAirline</div>
+                    <div>-------</div>
+                }
+
+            }
+        </td>
+            <td>
+                @Html.ActionLink("Chon", "Chon", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
